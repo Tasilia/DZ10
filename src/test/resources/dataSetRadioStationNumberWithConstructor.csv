@@ -1,0 +1,6 @@
+"Zero", 0, 0
+"Equal to one", 1, 1
+"Less than zero", -1, 0
+"Equals 13", 13, 13
+"Equals 14", 14, 14
+"More than 14", 15, 0
