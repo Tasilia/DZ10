@@ -1,6 +1,7 @@
 package ru.netology.radio;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -57,6 +58,40 @@ public class RadioTest {
     @CsvFileSource(resources = "/dataPrev.csv")
     public void shouldSetPrevRadioStationNumber(String test, int newRadioStationNumber, int expected) {
         Radio radio = new Radio();
+        radio.setCurrentRadioStationNumber(newRadioStationNumber);
+        radio.prev();
+        int actual = radio.getRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldSetNumberOfRadioStation(){
+        Radio radio = new Radio(15);
+        int actual = radio.getNumberOfRadioStations();
+        Assertions.assertEquals(15, actual);
+    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "/dataSetRadioStationNumberWithConstructor.csv")
+    public void shouldSetRadioStationNumberWithConstructor(String test, int newRadioStationNumber, int expected) {
+        Radio radio = new Radio(15);
+        radio.setCurrentRadioStationNumber(newRadioStationNumber);
+        int actual = radio.getRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/dataNextWithConstructor.csv")
+    public void shouldSetNextRadioStationNumberWithConstructor(String test, int newRadioStationNumber, int expected) {
+        Radio radio = new Radio(15);
+        radio.setCurrentRadioStationNumber(newRadioStationNumber);
+        radio.next();
+        int actual = radio.getRadioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/dataPrevWithConstructor.csv")
+    public void shouldSetPrevRadioStationNumberWithConstructor(String test, int newRadioStationNumber, int expected) {
+        Radio radio = new Radio(15);
         radio.setCurrentRadioStationNumber(newRadioStationNumber);
         radio.prev();
         int actual = radio.getRadioStationNumber();

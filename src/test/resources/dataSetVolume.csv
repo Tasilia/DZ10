@@ -1,6 +1,6 @@
 "Zero", 0, 0
 "Equal to one", 1, 1
 "Less than zero", -1, 0
-"Equals nine", 9, 9
-"Equals ten", 10, 10
-"More than ten", 11, 0
+"Equals 99", 99, 99
+"Equals 100", 100, 100
+"More than 100", 101, 0
